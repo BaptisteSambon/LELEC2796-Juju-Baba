@@ -570,3 +570,58 @@ def random_code(nUsers, length, tx_params):
                 found = True
 
     return result
+
+def String2Binary(message, tx_params):
+    """"
+    Converts the message into bits to be sent correctly into CDMA or NOMA.
+    It already returns the message into the good array shape.
+    
+    Parameters
+    ----------
+
+    message : str
+        Data to be transmitted.
+    
+    Returns
+    -------
+
+    binary_message : numpy array
+        Converted message that is transmitted into bits.
+        Each user gets the same bits-converted message. Shape (nUsers, nMessage)
+    """
+
+    binary_word = ''.join(format(ord(x), '08b') for x in message)
+    tx_params["nMessage"] = len(binary_word)
+    binary_message = np.zeros((tx_params["nUsers"], tx_params["nMessage"]))
+    for i in range (tx_params["nUsers"]):
+        for j in range (tx_params["nMessage"]):
+            binary_message[i][j] = int(binary_word[j])
+
+    return binary_message
+
+def Binary2String(binary_word):
+    """"
+    Converts the message from bits into a string.
+    
+    Parameters
+    ----------
+
+    binary_word : list
+        Received data in bits put into a list.
+    
+    Returns
+    -------
+
+    string_word : str
+        The convertion from bits into string of the received and decoded message from the base station.
+    """
+
+    list2string = ''.join(str(int(index)) for index in binary_word)
+    string_word = ''
+    for i in range(len(list2string)//8):
+        binary_segment = list2string[i*8:i*8+8]
+        decimal_data = int(binary_segment,2)
+        ascii_char = chr(decimal_data)
+        string_word += ascii_char
+    
+    return string_word
