@@ -625,3 +625,39 @@ def Binary2String(binary_word):
         string_word += ascii_char
     
     return string_word
+
+def goldcode(n):
+    """
+    Returns the three-valued cross correlation for a n-length Gold code
+
+    Parameters
+    ----------
+    
+    n : int
+        Length of desired Gold code
+        n must be one of these values [32, 64, 128, 512, 1024, 2048]
+    
+    Returns
+    -------
+    
+    result : int, int, int
+        Three-valued cross-correlation which is not normalized
+    """
+
+    if n == 32:
+        xcorr = [-9, 7]
+    elif n == 64:
+        xcorr = [-17, 15]
+    elif n == 128:
+        xcorr = [-17, 15]
+    elif n == 512:
+        xcorr = [-33, 31]
+    elif n == 1024:
+        xcorr = [-65, 63]
+    elif n == 2048:
+        xcorr = [-65, 63]
+    else:
+        raise ValueError("n must be one of 32, 64, 128, 512, 1024, 2048")
+
+
+    return xcorr[0], -1, xcorr[1]
