@@ -5,6 +5,7 @@
 import numpy as np 
 import random
 from itertools import product
+from scipy.linalg import hadamard
 
 # ##################
 # ### About NOMA ###
@@ -379,13 +380,11 @@ def CDMA_encode(data, tx_params):
     nMessage = tx_params["nMessage"]
     nCodeCDMA = tx_params["nCodeCDMA"]
     data_out = np.zeros(nMessage*nCodeCDMA)
-    tx_params["codes"] = []
-    codes = tx_params["codes"]
 
     for i in range(nUsers):
         data[i] = Binary2PlusMinusOne(data[i], int)
 
-    random_code(nUsers, nCodeCDMA, tx_params)
+    codes = random_code(nUsers, nCodeCDMA, tx_params)
     
     for i in range(nUsers):
         for j in range(nMessage):
@@ -529,7 +528,7 @@ def generate_bit_sequences(n):
 
     return all_sequences
 
-def random_code(nUsers, length, tx_params):
+'''def random_code(nUsers, length, tx_params):
     """
     Creates a random list of 0's and 1's and converts it into -1's and 1's.
     It also verifies the orthogonality condition between each created code before being returned.
@@ -569,7 +568,38 @@ def random_code(nUsers, length, tx_params):
                 tx_params["codes"].append(result)
                 found = True
 
-    return result
+    return result'''
+
+def random_code(nUsers, nCodeCDMA, tx_params):
+    """
+    Creates a matrix of -1's and 1's following the Walsh-Hadamard algorithms.
+
+    Parameters
+    ----------
+    
+    nUsers : int
+        Number of users at the receiving side
+    nCodeCDMA : int
+        Number of bits of the wanted code
+        Must be greater than nUsers
+    tx_params : dict
+        Basic parameters of the scenario
+    
+    Returns
+    -------
+    
+    tx_params["codes"] : numpy array
+        Matrix of random -1's and 1's. Shape (nUsers, nCodeCDMA)
+    """
+
+    if nCodeCDMA < nUsers:
+        print("nCodeCDMA must be greater than nUsers!")
+
+    else:
+        codes_hadamard = hadamard(nCodeCDMA)
+        tx_params["codes"] = codes_hadamard[:nUsers]
+    
+    return tx_params["codes"]
 
 def String2Binary(message, tx_params):
     """"
