@@ -6,7 +6,7 @@ Welcome to the repository of Baptiste & Justin!
 
 [![made-with-sionna](https://img.shields.io/badge/Sionna_library-orange)](https://nvlabs.github.io/sionna/)
 
-Keywords : NOMA, Non Orthogonal Multiple Access, CDMA, Code Division Multiple Access, Outage probability, BER, SNR, LELEC2796, Wireless Communications
+Keywords : NOMA, Non Orthogonal Multiple Access, CDMA, Code Division Multiple Access, BER, SNR, Spectral Efficiency, LELEC2796, Wireless Communications
 
 ## Introduction
 
@@ -37,7 +37,7 @@ Contains methods to...
 ## How to run
 
 - Clone this repository and move into the cloned directory
-- ...
+- If an error occurs the first time you run the codes, don't panik it's totally normal. Despite an "try expect" method, Sionna is not easy to import. Thus you often need to run the codes two times before seeing the plotted results.
 
 
 ### Note
