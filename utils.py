@@ -616,7 +616,7 @@ def Binary2String(binary_word):
 
 def goldcode(n):
     """
-    Returns the three-valued cross correlation for a n-length Gold code
+    Returns the three-valued cross correlation for a n-length Gold code.
 
     Parameters
     ----------
@@ -649,3 +649,36 @@ def goldcode(n):
 
 
     return xcorr[0], -1, xcorr[1]
+
+def MyMMSE(symbols, h, var_noise, received):
+    """
+    Apply the Minimum Mean Square Error equalization to the received signal.
+
+    Parameters
+    ----------
+    
+    symbols : numpy array
+        Useful information that has benn sent through the channel
+        
+    h : numpy array
+        Channel coefficients
+        
+    var_noise : float
+        Noise variance
+        
+    received : float
+        Received signal corrupted by noise, interference and channel coefficients
+    
+    Returns
+    -------
+    
+    mmse : numpy array
+        Equalized signal
+    """
+
+    var_symbols = np.var(symbols)
+    var_channel = np.var(h)
+    beta = (h*var_symbols**2)/((abs(h)**2*var_symbols**2)+(var_channel**2*var_symbols**2)+(var_noise**2))
+    mmse = received*beta
+
+    return mmse
