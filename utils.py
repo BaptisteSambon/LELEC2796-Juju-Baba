@@ -379,10 +379,10 @@ def CDMA_encode(data, tx_params):
     nUsers = tx_params["nUsers"]
     nMessage = tx_params["nMessage"]
     nCodeCDMA = tx_params["nCodeCDMA"]
-    data_out = np.zeros(nMessage*nCodeCDMA)
+    data_out = np.zeros(nMessage*nCodeCDMA, dtype=np.complex128)
 
     for i in range(nUsers):
-        data[i] = Binary2PlusMinusOne(data[i], int)
+        data[i] = Binary2PlusMinusOne(data[i], np.complex128)
 
     codes = random_code(nUsers, nCodeCDMA, tx_params)
     
@@ -414,15 +414,12 @@ def CDMA_decode(channel, tx_params):
     nUsers = tx_params["nUsers"]
     nMessage = tx_params["nMessage"]
     nCodeCDMA = tx_params["nCodeCDMA"]
-    predata_estimated = np.zeros((nUsers,nMessage))
-    data_estimated = np.zeros((nUsers,nMessage))
+    predata_estimated = np.zeros((nUsers,nMessage), dtype=np.complex128)
+    data_estimated = np.zeros((nUsers,nMessage), dtype=np.complex128)
     codes = tx_params["codes"]
 
     for i in range(nUsers):
         for j in range(nMessage):
-            print(channel[j*nCodeCDMA:(j+1)*nCodeCDMA])
-            print(codes[i])
-            print(np.dot(channel[j*nCodeCDMA:(j+1)*nCodeCDMA], codes[i]))
             predata_estimated[i][j] = np.dot(channel[j*nCodeCDMA:(j+1)*nCodeCDMA], codes[i])/nCodeCDMA
 
     for i in range(nUsers):
@@ -448,7 +445,7 @@ def random_data(tx_params):
         Matrix of random 0's and 1's. Shape (nUsers,nMessage)
     """
 
-    result = np.zeros((tx_params["nUsers"], tx_params["nMessage"]))
+    result = np.zeros((tx_params["nUsers"], tx_params["nMessage"]), dtype=np.complex128)
     for i in range(tx_params["nUsers"]):
         for j in range(tx_params["nMessage"]):
             result[i][j] = random.randint(0, 1)
@@ -531,48 +528,6 @@ def generate_bit_sequences(n):
 
     return all_sequences
 
-'''def random_code(nUsers, length, tx_params):
-    """
-    Creates a random list of 0's and 1's and converts it into -1's and 1's.
-    It also verifies the orthogonality condition between each created code before being returned.
-
-    Parameters
-    ----------
-    
-    nUsers : int
-        Number of users at the receiving side
-    length : int
-        Number of bits of the wanted code
-    tx_params : dict
-        Basic parameters of the scenario
-    
-    Returns
-    -------
-    
-    result : numpy array
-        List of random -1's and 1's. Shape (,length)
-    """
-
-    result = np.zeros(length)
-
-    possibilities = generate_bit_sequences(tx_params["nCodeCDMA"])
-
-    for user in range(nUsers):
-        found = False
-        k=0
-        while(not found) :
-            result = Binary2PlusMinusOne(possibilities[k], int)
-            k+=1
-            correct = True
-            for j in range(len(tx_params["codes"])) : 
-                if (np.dot(result, tx_params["codes"][j])!=0) : 
-                    correct = False
-            if(correct) : 
-                tx_params["codes"].append(result)
-                found = True
-
-    return result'''
-
 def random_code(nUsers, nCodeCDMA, tx_params):
     """
     Creates a matrix of -1's and 1's following the Walsh-Hadamard algorithms.
@@ -625,7 +580,7 @@ def String2Binary(message, tx_params):
 
     binary_word = ''.join(format(ord(x), '08b') for x in message)
     tx_params["nMessage"] = len(binary_word)
-    binary_message = np.zeros((tx_params["nUsers"], tx_params["nMessage"]))
+    binary_message = np.zeros((tx_params["nUsers"], tx_params["nMessage"]), dtype=np.complex128)
     for i in range (tx_params["nUsers"]):
         for j in range (tx_params["nMessage"]):
             binary_message[i][j] = int(binary_word[j])
