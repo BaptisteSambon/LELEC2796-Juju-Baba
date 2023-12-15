@@ -420,6 +420,9 @@ def CDMA_decode(channel, tx_params):
 
     for i in range(nUsers):
         for j in range(nMessage):
+            print(channel[j*nCodeCDMA:(j+1)*nCodeCDMA])
+            print(codes[i])
+            print(np.dot(channel[j*nCodeCDMA:(j+1)*nCodeCDMA], codes[i]))
             predata_estimated[i][j] = np.dot(channel[j*nCodeCDMA:(j+1)*nCodeCDMA], codes[i])/nCodeCDMA
 
     for i in range(nUsers):
