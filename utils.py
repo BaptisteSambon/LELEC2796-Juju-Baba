@@ -678,7 +678,8 @@ def MyMMSE(symbols, h, var_noise, received):
 
     var_symbols = np.var(symbols)
     var_channel = np.var(h)
-    beta = (h*var_symbols**2)/((abs(h)**2*var_symbols**2)+(var_channel**2*var_symbols**2)+(var_noise**2))
+    # beta = (h*var_symbols**2)/((abs(h)**2*var_symbols**2)+(var_channel**2*var_symbols**2)+(var_noise**2))
+    beta = (h*var_symbols**2)/((var_channel**2*var_symbols**2)+(var_noise**2))
     mmse = received*beta
 
     return mmse
