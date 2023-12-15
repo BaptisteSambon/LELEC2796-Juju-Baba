@@ -379,10 +379,10 @@ def CDMA_encode(data, tx_params):
     nUsers = tx_params["nUsers"]
     nMessage = tx_params["nMessage"]
     nCodeCDMA = tx_params["nCodeCDMA"]
-    data_out = np.zeros(nMessage*nCodeCDMA, dtype=np.complex128)
+    data_out = np.zeros(nMessage*nCodeCDMA)
 
     for i in range(nUsers):
-        data[i] = Binary2PlusMinusOne(data[i], np.complex128)
+        data[i] = Binary2PlusMinusOne(data[i], np.float32)
 
     codes = random_code(nUsers, nCodeCDMA, tx_params)
     
@@ -415,7 +415,7 @@ def CDMA_decode(channel, tx_params):
     nMessage = tx_params["nMessage"]
     nCodeCDMA = tx_params["nCodeCDMA"]
     predata_estimated = np.zeros((nUsers,nMessage), dtype=np.complex128)
-    data_estimated = np.zeros((nUsers,nMessage), dtype=np.complex128)
+    data_estimated = np.zeros((nUsers,nMessage))
     codes = tx_params["codes"]
 
     for i in range(nUsers):
@@ -445,7 +445,7 @@ def random_data(tx_params):
         Matrix of random 0's and 1's. Shape (nUsers,nMessage)
     """
 
-    result = np.zeros((tx_params["nUsers"], tx_params["nMessage"]), dtype=np.complex128)
+    result = np.zeros((tx_params["nUsers"], tx_params["nMessage"]))
     for i in range(tx_params["nUsers"]):
         for j in range(tx_params["nMessage"]):
             result[i][j] = random.randint(0, 1)
@@ -580,7 +580,7 @@ def String2Binary(message, tx_params):
 
     binary_word = ''.join(format(ord(x), '08b') for x in message)
     tx_params["nMessage"] = len(binary_word)
-    binary_message = np.zeros((tx_params["nUsers"], tx_params["nMessage"]), dtype=np.complex128)
+    binary_message = np.zeros((tx_params["nUsers"], tx_params["nMessage"]))
     for i in range (tx_params["nUsers"]):
         for j in range (tx_params["nMessage"]):
             binary_message[i][j] = int(binary_word[j])
