@@ -61,7 +61,7 @@ class CircularObstacles(Obstacles):
 
         return CircularObstacles(radii=radii, centers=centers)
 
-    def contains(self, points: Points) -> np.ndarray:
+    def contains(self, points: np.ndarray) -> np.ndarray:
         xp, yp = points.T
         xc, yc = self.centers.T
         dx = np.subtract.outer(xp, xc)

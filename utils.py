@@ -707,10 +707,153 @@ def MyMMSE(symbols, h, var_noise, received):
     """
 
     var_symbols = np.var(symbols)
-    # var_channel = np.var(h)
-    # beta = (h*var_symbols**2)/((abs(h)**2*var_symbols**2)+(var_channel**2*var_symbols**2)+(var_noise**2))
-    # beta = (h*var_symbols**2)/((var_channel**2*var_symbols**2)+(var_noise**2))
     beta = (var_symbols)/(var_symbols*h+var_noise)
     mmse = received*beta
 
     return mmse
+
+
+# ##################
+# ### About ICI  ###
+# ##################
+
+def received_power_r(
+    r: np.ndarray, P0: float = 10.0, h: float = 1.0, alpha: float = 3.0
+) -> np.ndarray:
+    """
+    Returns the received power at given distances from the BS.
+
+    Parameters
+    ----------
+    r : np.ndarray
+        Distances from the BS
+    P0 : float
+        Power at reference distance
+    h : float
+        Height of the BS
+    alpha : float
+        Path loss exponent
+
+    Returns
+    -------
+    Pr : np.ndarray
+        Received power at given distances
+
+    """
+    Pr = P0 * (h**2 + r**2) ** (-alpha / 2)
+    return Pr
+
+
+def received_power(
+        points: np.ndarray, P0: float = 10.0, h: float = 1.0, alpha: float = 3.0
+    ) -> np.ndarray:
+    """
+    Returns the received power at a given localtion from the user.
+
+    Parameters
+    ----------
+    points : Points
+        Points of the scenario
+
+    Returns
+    -------
+    Pr : np.ndarray
+        Received power at given distances
+
+    """
+    r = np.linalg.norm(points, axis=1)
+    Pr = received_power_r(r, P0=P0, h=h, alpha=alpha)
+    return Pr
+
+def reflection_point_from_los(
+    x0: float, y0: float, z0: float, x1: float, y1: float, z1: float
+) -> np.ndarray:
+    """
+    Compute the reflection point on the plane z = 0,
+    from a given LOS path,
+    and return it [x, y] coordinates.
+
+    Parameters
+    ----------
+    x0 : float
+        x coordinate of the BS
+    y0 : float
+        y coordinate of the BS
+    z0 : float
+        z coordinate of the BS
+    x1 : float
+        x coordinate of the user
+    y1 : float
+        y coordinate of the user
+    z1 : float
+        z coordinate of the user
+
+    Returns
+    -------
+    np.ndarray
+        [x, y] coordinates of the reflection point
+    """
+    r = z0 / (z0 + z1)
+    dx = x1 - x0
+    dy = y1 - y0
+    return np.array([x0 + r * dx, y0 + r * dy])
+
+
+def line_segment_circle_intersection_depth(
+    x0: float, y0: float, x1: float, y1: float, xc: float, yc: float, rc: float
+) -> float:
+    """
+    Return the length of the intersection section segment between a
+    line segment and a circle.
+
+    This algorirthm computes the distance between the two intersection
+    points, using the algorithm detailed in:
+    https://mathworld.wolfram.com/Circle-LineIntersection.html
+
+    The depth is always between 0 and xc, the circle radius.
+
+    Parameters
+    ----------
+    x0 : float
+        x coordinate of the first point of the line segment
+    y0 : float
+        y coordinate of the first point of the line segment
+    x1 : float
+        x coordinate of the second point of the line segment
+    y1 : float
+        y coordinate of the second point of the line segment
+    xc : float
+        x coordinate of the center of the circle
+    yc : float
+        y coordinate of the center of the circle
+    rc : float
+        radius of the circle
+
+    Returns
+    -------
+    float
+        Length of the intersection segment between the line segment and the circle
+    """
+
+    # Set the circle center to (0, 0)
+    x0 = x0 - xc
+    y0 = y0 - yc
+    x1 = x1 - xc
+    y1 = y1 - yc
+    dx = x1 - x0
+    dy = y1 - y0
+    dr = np.sqrt(dx * dx + dy * dy)
+    dr2 = dr * dr
+    D = x0 * y1 - x1 * y0
+    delta = rc * rc * dr2 - D * D
+    delta = np.clip(delta, a_min=0.0, a_max=None)  # Avoir negative square roots
+    sdelta = np.sqrt(delta)
+    dsx = 2 * dx * sdelta / dr2
+    dsy = 2 * dy * sdelta / dr2
+    dot = dx * (-x0) + dy * (-y0)  # Dot product between line segment and vector
+    # from (x0, y0) to circle's center (0, 0)
+    circle_between_points = (0 <= dot <= dr2)
+
+    depth = np.sqrt(dsx * dsx + dsy * dsy)
+
+    return np.where(circle_between_points, depth, 0.0)
