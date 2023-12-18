@@ -334,8 +334,6 @@ def conv_encoder(u,R1,R0,out_R1,out_R0,len_b):
         u_i = u_b[i,:]
         # non systematic output of block i (TO FILL!)
         c_i = c_b[i,:]
-
-        #TO COMPLETE
         
         state = 0 #on part toujours de l'état 0
         for j in range(len_b) : 
@@ -351,6 +349,38 @@ def conv_encoder(u,R1,R0,out_R1,out_R0,len_b):
     c = np.reshape(c_b,u.shape)
     
     return (u,c)
+
+def get_power_allocation(tx_params, Ptot, var_noise): 
+    """
+    Computes the power allocation coefficients for NOMA.
+
+    Parameters
+    ----------
+
+    tx_params : dict
+        Dictionary containing the parameters of the transmission
+        tx_params["nUsers"] : Number of users
+    Ptot : float
+        Total power available
+    var_noise : float
+        Noise variance
+
+    Returns
+    -------
+    powers : numpy array
+        Power allocation coefficients
+    """
+
+    nUsers = tx_params["nUsers"]
+    powers = np.zeros(nUsers)
+
+    mu = (1 + (Ptot)/var_noise)**(-1/tx_params["nUsers"])
+
+    for i in range(nUsers): 
+        powers[i] = Ptot*((mu**(i))*(1-mu))/(1-mu**(tx_params["nUsers"]))
+    
+    return powers
+
 
 
 # ##################
