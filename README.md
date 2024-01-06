@@ -40,8 +40,29 @@ Go to the project directory
 
 ### Requirements
 
-- Clone this repository and move into the cloned directory
-- If an error occurs the first time you run the codes, don't panik it's totally normal. Despite an "try expect" method, Sionna is not easy to import. Thus you often need to run the codes two times before seeing the plotted results.
+To run the codes, you need to install the following libraries:
+
+- [Sionna](https://nvlabs.github.io/sionna/)
+- [Matplotlib](https://matplotlib.org/)
+- [Numpy](https://numpy.org/)
+- [Scipy](https://www.scipy.org/)
+- [Pandas](https://pandas.pydata.org/)
+- [Plotly](https://plotly.com/python/)
+- [Tensorflow](https://www.tensorflow.org/)
+- [Termcolor](https://pypi.org/project/termcolor/)
+- [Seaborn](https://seaborn.pydata.org/)
+
+Sionna is a library developed by the [NVIDIA](https://www.nvidia.com/en-us/) team. It is a library for simulating wireless communication systems. It is based on the [Tensorflow](https://www.tensorflow.org/) library. It is a very powerful library but it is not easy to install. To install it, you need to follow the instructions on the [Sionna website](https://nvlabs.github.io/sionna/installation.html).
+
+
+[TIP!]
+If an error occurs the first time you run the import cell in the notebooks, don't panic it's totally fine. Despite a "try expect" method, Sionna is not easy to import. Thus you often need to run the codes two times before seeing the plotted results.
+
+[!NOTE] 
+The codes were written in Python 3.8.5. They were tested on Windows 10. They should work on any operating system and any version of Python 3. However, we cannot guarantee that they will work on your computer. If you encounter any problem, please contact us.
+
+[!IMPORTANT]
+The variables and parameters used for the simulations are defined in the first cell of the notebooks. You can change them to see the impact on the results. 
 
 ## Available codes
 
