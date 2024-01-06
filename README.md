@@ -55,7 +55,7 @@ To run the codes, you need to install the following libraries:
 Sionna is a library developed by the [NVIDIA](https://www.nvidia.com/en-us/) team. It is a library for simulating wireless communication systems. It is based on the [Tensorflow](https://www.tensorflow.org/) library. It is a very powerful library but it is not easy to install. To install it, you need to follow the instructions on the [Sionna website](https://nvlabs.github.io/sionna/installation.html).
 
 
-> [TIP!]
+\> \[TIP!\]
 > If an error occurs the first time you run the import cell in the notebooks, don't panic it's totally fine. Despite a "try expect" method, Sionna is not easy to import. Thus you often need to run the codes two times before seeing the plotted results.
 
 [!NOTE] 
