@@ -1,12 +1,12 @@
 # LELEC2796-Juju-Baba
 
-Welcome to the repository of  [Baptiste](https://github.com/BaptisteSambon)  & [Justin](https://github.com/Just1Wmls)!
+Welcome to the repository of  [Baptiste](https://github.com/BaptisteSambon)  & [Justin](https://github.com/Just1Wmls) for the project of the course [LELEC2796 - Wireless Communications](https://uclouvain.be/en-cours-2023-lelec2796) given at [UClouvain](https://uclouvain.be/fr/index.html) ! 
 
 [![made-with-python](https://img.shields.io/badge/python-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 [![made-with-sionna](https://img.shields.io/badge/Sionna_library-orange)](https://nvlabs.github.io/sionna/)
 
-This Readme contains information about the oraganisation of the repository, the codes and how to run them.
+This Readme contains information about the organisation of the repository, the codes and how to run them.
 
 **Keywords** : NOMA, Non Orthogonal Multiple Access, CDMA, Code Division Multiple Access, BER, SNR, Spectral Efficiency, Users Scalability, LELEC2796, Wireless Communications. 
 
@@ -18,22 +18,30 @@ This repository contains the codes for the project of the course [LELEC2796 - Wi
 
 - [Introduction](#introduction)
 - [Table of contents](#table-of-contents)
-- [Available codes](#available-codes)
 - [How to run](#how-to-run)
+- [Available codes](#available-codes)
 - [Note](#note)
 - [References](#references)
 - [Authors](#authors)
 
+## How to run
 
-### CDMA
-Code Division Multiple Access...
+Clone the project
 
-### NOMA
-Non Orthogonal Multiple Access...
+```bash
+  git clone https://github.com/BaptisteSambon/LELEC2796-Juju-Baba.git 
+```
 
-### Scenario
-Scenario...
+Go to the project directory
 
+```bash
+  cd LELEC2796-Juju-Baba
+```
+
+### Requirements
+
+- Clone this repository and move into the cloned directory
+- If an error occurs the first time you run the codes, don't panik it's totally normal. Despite an "try expect" method, Sionna is not easy to import. Thus you often need to run the codes two times before seeing the plotted results.
 
 ## Available codes
 
@@ -47,12 +55,6 @@ Contains code for CDMA...
 
 - #### [utils.py](./utils.py)
 Contains methods to...
-
-
-## How to run
-
-- Clone this repository and move into the cloned directory
-- If an error occurs the first time you run the codes, don't panik it's totally normal. Despite an "try expect" method, Sionna is not easy to import. Thus you often need to run the codes two times before seeing the plotted results.
 
 
 ### Note
