@@ -19,6 +19,7 @@ This repository contains the codes for the project of the course [LELEC2796 - Wi
 - [Introduction](#introduction)
 - [Table of contents](#table-of-contents)
 - [How to run](#how-to-run)
+- [Scenario](#scenario)
 - [Available codes](#available-codes)
 - [Note](#note)
 - [References](#references)
@@ -47,6 +48,7 @@ To run the codes, you need to install the following libraries:
 - [Numpy](https://numpy.org/)
 - [Scipy](https://www.scipy.org/)
 - [Pandas](https://pandas.pydata.org/)
+- [Random](https://docs.python.org/3/library/random.html)
 - [Plotly](https://plotly.com/python/)
 - [Tensorflow](https://www.tensorflow.org/)
 - [Termcolor](https://pypi.org/project/termcolor/)
@@ -64,34 +66,58 @@ Sionna is a library developed by the [NVIDIA](https://www.nvidia.com/en-us/) tea
 > [!IMPORTANT]\
 > The variables and parameters used for the simulations are defined in the first cell of the notebooks. You can change them to see the impact on the results. 
 
+## Scenario
+
+A specific scenario is defined with shared assumptions for fair evaluation. It involves downlink communication from one Base Station (BS) to several User Equipments (UEs) with fixed initial power, using Binary Phase-Shift Keying (BPSK) modulation. Perfect Channel State Information (CSI) is assumed, with a flat fading Line of Sight (LoS) configuration and non-zero Inter-Cell and Inter-User Interference. Minimum Mean Square Error equalization (MMSE) is applied at the receiver. 
+
+The inter-cell interference (ICI) is generated using the [cells.ipynb](./cells.ipynb) notebook by considering a grid of cells. The number of cells, the density of cells, the obstacles, etc. can be changed. The ICI is then used in the [NOMA.ipynb](./NOMA.ipynb) and [CDMA.ipynb](./CDMA.ipynb) notebooks to simulate the NOMA and CDMA systems. The results are plotted in the [NOMAvsCDMA.ipynb](./NOMAvsCDMA.ipynb) notebook.
+
 ## Available codes
 
-The codes in this repository...
+The codes in this repository are divided into 4 Jupyter notebooks and 3 python files. 
+
+The notebooks are:
 
 - #### [NOMA.ipynb](./NOMA.ipynb)
-Contains code for NOMA...
+Contains code for NOMA and plots the BER, the spectral efficiency and the users scalability for different values of the SNR. 
 
 - #### [CDMA.ipynb](./CDMA.ipynb)
-Contains code for CDMA...
+Contains code for CDMA and plots the BER, the spectral efficiency and the users scalability for different values of the SNR.
+
+- #### [NOMAvsCDMA.ipynb](./NOMAvsCDMA.ipynb)
+Contains code for plots comparing the performance (BER, spectral efficiency, users scalability) of the NOMA and CDMA systems for different values of the SNR, different number of users. 
+
+- #### [cells.ipynb](./cells.ipynb)
+Contains the code used to generate the inter-cells interference with different scenarios investigated (density of cells, obstacles, etc.).
+
+The python files are:
 
 - #### [utils.py](./utils.py)
-Contains methods to...
+Contains all the functions used in the notebooks. Each function is documented.
+
+- #### [cells.py](./cells.py)
+Contains the class used to generate the points (coordinates) for the obstacles in [cells.ipynb](./cells.ipynb) and used in [obstacles.py](./obstacles.py).
+
+- #### [obstacles.py](./obstacles.py)
+Contains the class used to generate the circular obstacles in [cells.ipynb](./cells.ipynb).
 
 
 ### Note
 
-1. These codes...
+Folders and files with the prefix "old" are not used in the notebooks. They were used for previous versions of the codes. They are kept for reference.
+
+In the Folder [data](./data), you can find the data used to plot the results in the [NOMAvsCDMA.ipynb](./NOMAvsCDMA.ipynb) notebook and the interference arrays generated in the [cells.ipynb](./cells.ipynb) notebook (representing the values of interference obtained by simulations and with several iterations and random initialisations of the BSs coordinates).
 
 ## References
 
+- . 
+
+
 ### Links
 
-[1] &emsp; ...
-
-### Books
-
-[1] &emsp; ...
+- [LELEC2796 - Wireless Communications](https://uclouvain.be/en-cours-2023-lelec2796). 
+- [LELEC2796 - Wireless Communications - Moodle](https://moodle.uclouvain.be/course/view.php?id=1465).
 
 ## Authors
-- [@Justin Weemaels](https://github.com/Just1Wmls)
 - [@Baptiste Sambon](https://github.com/BaptisteSambon) 
+- [@Justin Weemaels](https://github.com/Just1Wmls)
