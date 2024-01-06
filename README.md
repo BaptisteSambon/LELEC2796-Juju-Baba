@@ -6,11 +6,13 @@ Welcome to the repository of  [Baptiste](https://github.com/BaptisteSambon)  & [
 
 [![made-with-sionna](https://img.shields.io/badge/Sionna_library-orange)](https://nvlabs.github.io/sionna/)
 
-Keywords : NOMA, Non Orthogonal Multiple Access, CDMA, Code Division Multiple Access, BER, SNR, Spectral Efficiency, Users Scalability, LELEC2796, Wireless Communications. 
+This Readme contains information about the oraganisation of the repository, the codes and how to run them.
+
+**Keywords** : NOMA, Non Orthogonal Multiple Access, CDMA, Code Division Multiple Access, BER, SNR, Spectral Efficiency, Users Scalability, LELEC2796, Wireless Communications. 
 
 ## Introduction
 
-This repository contains the codes for the project of the course LELEC2796 Wireless Communications at UCLouvain. The goal of this project is to compare the performance of NOMA and CDMA in a wireless communication system. The comparison is based on the BER, the spectral efficiency and the users scalability. The codes are written in Python and use the Sionna library. The results are plotted using Matplotlib.
+This repository contains the codes for the project of the course [LELEC2796 - Wireless Communications](https://uclouvain.be/en-cours-2023-lelec2796) at [UClouvain](https://uclouvain.be/fr/index.html). The goal of this project is to compare the performance of NOMA and CDMA in a wireless communication system. The comparison is based on the BER, the spectral efficiency and the users scalability. The codes are written in Python and use the Sionna library. The results are plotted using Matplotlib.
 
 ## Table of contents
 
