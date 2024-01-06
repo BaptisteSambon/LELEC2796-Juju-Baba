@@ -76,7 +76,7 @@ The inter-cell interference (ICI) is generated using the [cells.ipynb](./cells.i
 
 The codes in this repository are divided into 4 Jupyter notebooks and 3 python files. 
 
-The notebooks are:
+The **notebooks** are:
 
 - #### [NOMA.ipynb](./NOMA.ipynb)
 Contains code for NOMA and plots the BER, the spectral efficiency and the users scalability for different values of the SNR. 
@@ -90,7 +90,7 @@ Contains code for plots comparing the performance (BER, spectral efficiency, use
 - #### [cells.ipynb](./cells.ipynb)
 Contains the code used to generate the inter-cells interference with different scenarios investigated (density of cells, obstacles, etc.).
 
-The python files are:
+The **python files** are:
 
 - #### [utils.py](./utils.py)
 Contains all the functions used in the notebooks. Each function is documented.
@@ -110,49 +110,33 @@ In the Folder [data](./data), you can find the data used to plot the results in 
 
 ## References
 
-1. Iswarya, N., and L. S. Jayashree. 2021. ‘A Survey on Successive Interference Cancellation Schemes in Non-Orthogonal Multiple Access for Future Radio Access’. *Wireless Personal Communications*, 120(2), 1057–78. [Link](#b1)
+1. Iswarya, N., and L. S. Jayashree. 2021. ‘A Survey on Successive Interference Cancellation Schemes in Non-Orthogonal Multiple Access for Future Radio Access’. *Wireless Personal Communications*, 120(2), 1057–78. 
 
-2. Dai, L., Wang, B., Yuan, Y., Han, S., Chih-Lin, I., & Wang, Z. (2015). Non-orthogonal multiple access for 5G: Solutions, challenges, opportunities, and future research trends. *IEEE Communications Magazine*, 53, 74–81. [Link](#b2)
+2. Dai, L., Wang, B., Yuan, Y., Han, S., Chih-Lin, I., & Wang, Z. (2015). Non-orthogonal multiple access for 5G: Solutions, challenges, opportunities, and future research trends. *IEEE Communications Magazine*, 53, 74–81. 
 
-3. A. Benjebbour, Y. Saito, Y. Kishiyama, A. Li, A. Harada, and T. Nakamura, ”Concept and practical considerations of non-orthogonal multiple access (NOMA) for future radio access,” *Proc. IEEE ISPACS*, Nov. 2013. [Link](#b3)
+3. A. Benjebbour, Y. Saito, Y. Kishiyama, A. Li, A. Harada, and T. Nakamura, ”Concept and practical considerations of non-orthogonal multiple access (NOMA) for future radio access,” *Proc. IEEE ISPACS*, Nov. 2013. 
 
-4. Y. Saito, A. Benjebbour, Y. Kishiyama, and T. Nakamura, “System-level performance evaluation of downlink nonorthogonal multiple access (NOMA),” *Proc. IEEE PIMRC 2013*, Sept. 2013. [Link](#b4)
+4. Y. Saito, A. Benjebbour, Y. Kishiyama, and T. Nakamura, “System-level performance evaluation of downlink nonorthogonal multiple access (NOMA),” *Proc. IEEE PIMRC 2013*, Sept. 2013. 
 
-5. A. Li, A. Benjebbour, and A. Harada, "Performance evaluation of non-orthogonal multiple access combined with opportunistic beamforming," *Proc. IEEE VTC Spring 2014*, May 2014. [Link](#b5)
+5. A. Li, A. Benjebbour, and A. Harada, "Performance evaluation of non-orthogonal multiple access combined with opportunistic beamforming," *Proc. IEEE VTC Spring 2014*, May 2014. 
 
-6. A. Benjebbour, A. Li, Y. Kishiyama, H. Jiang, and T. Nakamura, “System-level performance of downlink NOMA combined with SU-MIMO for future LTE enhancements,” *IEEE Globecom*, Dec. 2014. [Link](#b6)
+6. A. Benjebbour, A. Li, Y. Kishiyama, H. Jiang, and T. Nakamura, “System-level performance of downlink NOMA combined with SU-MIMO for future LTE enhancements,” *IEEE Globecom*, Dec. 2014. 
 
-7. K. Higuchi and A. Benjebbour, “Non-orthogonal multiple access (NOMA) with successive interference cancellation for future radio access,” *IEICE Trans. on Commun.*, Jan. 2015. [Link](#b7)
+7. K. Higuchi and A. Benjebbour, “Non-orthogonal multiple access (NOMA) with successive interference cancellation for future radio access,” *IEICE Trans. on Commun.*, Jan. 2015. 
 
-8. Wang, Hong, Zhaoyang Zhang, and Xiaoming Chen. 2017. ‘Energy-Efficient Power Allocation for Non-Orthogonal Multiple Access with Imperfect Successive Interference Cancellation’. In *2017 9th International Conference on Wireless Communications and Signal Processing (WCSP)*, 1–6. [Link](#b8)
+8. Wang, Hong, Zhaoyang Zhang, and Xiaoming Chen. 2017. ‘Energy-Efficient Power Allocation for Non-Orthogonal Multiple Access with Imperfect Successive Interference Cancellation’. In *2017 9th International Conference on Wireless Communications and Signal Processing (WCSP)*, 1–6. 
 
-9. Yang, Zhaohui, Wei Xu, Cunhua Pan, Yijin Pan, and Ming Chen. 2017. ‘On the Optimality of Power Allocation for NOMA Downlinks With Individual QoS Constraints’. *IEEE Communications Letters*, 21(7), 1649–52. [Link](#b9)
+9. Yang, Zhaohui, Wei Xu, Cunhua Pan, Yijin Pan, and Ming Chen. 2017. ‘On the Optimality of Power Allocation for NOMA Downlinks With Individual QoS Constraints’. *IEEE Communications Letters*, 21(7), 1649–52. 
 
-10. Wang, Chin-Liang, Jyun-Yu Chen, and Yi-Jhen Chen. 2016. ‘Power Allocation for a Downlink Non-Orthogonal Multiple Access System’. *IEEE Wireless Communications Letters*, 5(5), 532. [Link](#b10)
+10. Wang, Chin-Liang, Jyun-Yu Chen, and Yi-Jhen Chen. 2016. ‘Power Allocation for a Downlink Non-Orthogonal Multiple Access System’. *IEEE Wireless Communications Letters*, 5(5), 532. 
 
-11. López, Carlos Alberto Rodríguez, and Vitalio Alfonso Reguera. 2021. ‘Simple Fair Power Allocation for NOMA-Based Visible Light Communication Systems’. *ArXiv*. [Link](#b11)
+11. López, Carlos Alberto Rodríguez, and Vitalio Alfonso Reguera. 2021. ‘Simple Fair Power Allocation for NOMA-Based Visible Light Communication Systems’. *ArXiv*. 
 
-12. L. Hanzo, L-L. Yang, E-L. Kuan and K. Yen. 2003. 'Single- and Multi-Carriers DS-CDMA: Multi-User Detection, Space-Time Spreading, Synchronisation, Networking and Standards'. Chapter 2 'CDMA Overview'. [Link](#b13)
+12. L. Hanzo, L-L. Yang, E-L. Kuan and K. Yen. 2003. 'Single- and Multi-Carriers DS-CDMA: Multi-User Detection, Space-Time Spreading, Synchronisation, Networking and Standards'. Chapter 2 'CDMA Overview'. 
 
-13. Nguyen Thi-Mai-Trang. "Génération des codes CDMA dans l'UMTS". "Network and Performance Analysis Team". Posted in 2017. Accessed in november 2023. [Link](#b14)
+13. Nguyen Thi-Mai-Trang. "Génération des codes CDMA dans l'UMTS". "Network and Performance Analysis Team". Posted in 2017. Accessed in november 2023. 
 
-14. Pei Xiao, Erik Ström. Added to IEEE Xplore in March 2004. 'Delay Estimation and Data Detection in Long-Code DS\_CDMA System'. DOI:10.1109/APCC.2003.1274425. [Link](#b15)
-
-### References
-\#b1: [Link](#b1)  
-\#b2: [Link](#b2)  
-\#b3: [Link](#b3)  
-\#b4: [Link](#b4)  
-\#b5: [Link](#b5)  
-\#b6: [Link](#b6)  
-\#b7: [Link](#b7)  
-\#b8: [Link](#b8)  
-\#b9: [Link](#b9)  
-\#b10: [Link](#b10)  
-\#b11: [Link](#b11)   
-\#b13: [Link](#b13)  
-\#b14: [Link](#b14)  
-\#b15: [Link](#b15)
+14. Pei Xiao, Erik Ström. Added to IEEE Xplore in March 2004. 'Delay Estimation and Data Detection in Long-Code DS\_CDMA System'. DOI:10.1109/APCC.2003.1274425. 
 
 
 
