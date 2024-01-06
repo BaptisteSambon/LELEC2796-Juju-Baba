@@ -1,14 +1,27 @@
 # LELEC2796-Juju-Baba
 
-Welcome to the repository of Baptiste & Justin!
+Welcome to the repository of  [Baptiste](https://github.com/BaptisteSambon)  & [Justin](https://github.com/Just1Wmls)!
 
 [![made-with-python](https://img.shields.io/badge/python-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 [![made-with-sionna](https://img.shields.io/badge/Sionna_library-orange)](https://nvlabs.github.io/sionna/)
 
-Keywords : NOMA, Non Orthogonal Multiple Access, CDMA, Code Division Multiple Access, BER, SNR, Spectral Efficiency, LELEC2796, Wireless Communications
+Keywords : NOMA, Non Orthogonal Multiple Access, CDMA, Code Division Multiple Access, BER, SNR, Spectral Efficiency, Users Scalability, LELEC2796, Wireless Communications. 
 
 ## Introduction
+
+This repository contains the codes for the project of the course LELEC2796 Wireless Communications at UCLouvain. The goal of this project is to compare the performance of NOMA and CDMA in a wireless communication system. The comparison is based on the BER, the spectral efficiency and the users scalability. The codes are written in Python and use the Sionna library. The results are plotted using Matplotlib.
+
+## Table of contents
+
+- [Introduction](#introduction)
+- [Table of contents](#table-of-contents)
+- [Available codes](#available-codes)
+- [How to run](#how-to-run)
+- [Note](#note)
+- [References](#references)
+- [Authors](#authors)
+
 
 ### CDMA
 Code Division Multiple Access...
@@ -53,3 +66,7 @@ Contains methods to...
 ### Books
 
 [1] &emsp; ...
+
+## Authors
+- [@Justin Weemaels](https://github.com/Just1Wmls)
+- [@Baptiste Sambon](https://github.com/BaptisteSambon) 
