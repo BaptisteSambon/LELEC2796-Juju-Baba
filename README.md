@@ -68,9 +68,9 @@ Sionna is a library developed by the [NVIDIA](https://www.nvidia.com/en-us/) tea
 
 ## Scenario
 
-A specific scenario is defined with shared assumptions for fair evaluation. It involves downlink communication from one Base Station (BS) to several User Equipments (UEs) with fixed initial power, using Binary Phase-Shift Keying (BPSK) modulation. Perfect Channel State Information (CSI) is assumed, with a flat fading Line of Sight (LoS) configuration and non-zero Inter-Cell and Inter-User Interference. Minimum Mean Square Error equalization (MMSE) is applied at the receiver. 
+A specific scenario is defined with shared assumptions for fair evaluation. It involves downlink communication from one Base Station (BS) to several User Equipments (UEs) with fixed initial power, using Binary Phase-Shift Keying (BPSK) modulation. Perfect Channel State Information (CSI) and perfect synchronization are assumed, with a flat fading Line of Sight (LoS) configuration and non-zero Inter-Cell and Inter-User Interference. Minimum Mean Square Error equalization (MMSE) is applied at the receiver. 
 
-The inter-cell interference (ICI) is generated using the [cells.ipynb](./cells.ipynb) notebook by considering a grid of cells. The number of cells, the density of cells, the obstacles, etc. can be changed. The ICI is then used in the [NOMA.ipynb](./NOMA.ipynb) and [CDMA.ipynb](./CDMA.ipynb) notebooks to simulate the NOMA and CDMA systems. The results are plotted in the [NOMAvsCDMA.ipynb](./NOMAvsCDMA.ipynb) notebook.
+The Inter-Cell Interferences (ICI) are generated using the [cells.ipynb](./cells.ipynb) notebook by considering a grid of cells. The number of cells, the density of cells, the obstacles, etc. can be changed. The ICI are then used in the [NOMA.ipynb](./NOMA.ipynb) and [CDMA.ipynb](./CDMA.ipynb) notebooks to simulate the NOMA and CDMA systems. The results are plotted in the [NOMAvsCDMA.ipynb](./NOMAvsCDMA.ipynb) notebook.
 
 ## Available codes
 
@@ -88,7 +88,7 @@ Contains code for CDMA and plots the BER, the spectral efficiency and the users 
 Contains code for plots comparing the performance (BER, spectral efficiency, users scalability) of the NOMA and CDMA systems for different values of the SNR, different number of users. 
 
 - #### [cells.ipynb](./cells.ipynb)
-Contains the code used to generate the inter-cells interference with different scenarios investigated (density of cells, obstacles, etc.).
+Contains the code used to generate the ICI with different scenarios investigated (density of cells, obstacles, etc.).
 
 The **python files** are:
 
